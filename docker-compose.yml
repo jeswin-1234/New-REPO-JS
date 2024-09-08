@@ -1,0 +1,17 @@
+# version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/usr/src/app
+    command: ["yarn", "run", "start:dev"]
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
